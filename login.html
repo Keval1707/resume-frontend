@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="loginsignup.css" />
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- FontAwesome for Social Media Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <h2 id="form-title">Login</h2>
+        <form id="auth-form">
+          <div class="input-group">
+            <input type="text" id="username" required />
+            <label>Username</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" required />
+            <label>Password</label>
+          </div>
+          <button type="submit" class="btn">Login</button>
+
+          <div class="social-login">
+            <p>Or login with</p>
+            <div class="social-buttons">
+              <button class="social-btn google">
+                <i class="fab fa-google"></i>
+              </button>
+              <button class="social-btn facebook">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button class="social-btn linkedin">
+                <i class="fab fa-linkedin-in"></i>
+              </button>
+            </div>
+          </div>
+
+          <p class="toggle">
+            Don't have an account? <a href="#" id="toggle-signup">Sign up</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

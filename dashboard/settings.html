@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - AI Resume Builder</title>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #001f3f, #0072ff, #00f2ff);
+            color: #fff;
+        }
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            height: 100%;
+            padding: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+            gap: 10px;
+        }
+
+        .sidebar .menu {
+            margin-top: 40px;
+            list-style: none;
+        }
+
+        .sidebar .menu li {
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 8px;
+        }
+
+        .sidebar .menu li:hover,
+        .sidebar .menu li.active {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Settings Sections */
+        .settings-section {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+            backdrop-filter: blur(10px);
+        }
+
+        .settings-section:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .settings-section h2 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Button */
+        .btn {
+            padding: 12px 20px;
+            background: linear-gradient(45deg, #00f2ff, #0072ff);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #0072ff, #00f2ff);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 25px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #ccc;
+            border-radius: 25px;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 2.5px;
+            background: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background: #00f2ff;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: space-between;
+                padding: 15px;
+            }
+
+            .menu {
+                display: flex;
+                gap: 15px;
+            }
+
+            .main-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-file-alt"></i>
+            <h2>AI Resume</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/dashboard/my-resumes.html"><i class="fas fa-file"></i> My Resumes</a></li>
+            <li class="active"><a href="/dashboard/settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>Settings</h1>
+        </header>
+
+        <!-- Profile Settings -->
+        <section class="settings-section">
+            <h2>Profile Settings</h2>
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe">
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="johndoe@example.com">
+            </div>
+            <button class="btn">Update Profile</button>
+        </section>
+
+        <!-- Change Password -->
+        <section class="settings-section">
+            <h2>Change Password</h2>
+            <div class="input-group">
+                <label>Current Password</label>
+                <input type="password" placeholder="••••••••">
+            </div>
+            <div class="input-group">
+                <label>New Password</label>
+                <input type="password" placeholder="••••••••">
+            </div>
+            <button class="btn">Change Password</button>
+        </section>
+
+        <!-- Notification Settings -->
+        <section class="settings-section">
+            <h2>Notifications</h2>
+            <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="slider"></span>
+            </label>
+            <span>Email Notifications</span>
+        </section>
+    </div>
+
+</body>
+</html>

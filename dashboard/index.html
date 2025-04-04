@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Builder - Dashboard</title>
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        display: flex;
+        background: linear-gradient(120deg, #002244, #0055ff, #00f2ff);
+        color: #fff;
+        height: 100vh;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        width: 250px;
+        background: rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(10px);
+        height: 100%;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .sidebar .menu {
+        margin-top: 30px;
+        list-style: none;
+      }
+
+      .sidebar .menu li {
+        padding: 15px;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sidebar .menu li:hover,
+      .sidebar .menu li.active {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex-grow: 1;
+        padding: 30px;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .profile img {
+        width: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      /* Dropdown Menu */
+      .dropdown-menu {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+        flex-direction: column;
+      }
+
+      .dropdown-menu a {
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .dropdown-menu a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+      }
+
+      /* AI Resume Generator Section */
+      .ai-resume {
+        text-align: center;
+        margin-top: 30px;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        transition: 0.3s;
+      }
+
+      .ai-resume:hover {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      }
+
+      .btn {
+        padding: 12px 20px;
+        background: linear-gradient(45deg, #00f2ff, #0072ff);
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .btn:hover {
+        background: linear-gradient(45deg, #0072ff, #00f2ff);
+        box-shadow: 0 0 15px rgba(0, 242, 255, 0.8);
+        transform: scale(1.05);
+      }
+
+      /* Saved Resumes */
+      .saved-resumes {
+        margin-top: 30px;
+      }
+
+      .resume-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .resume-card {
+        flex: 1;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        border-radius: 10px;
+        transition: 0.3s;
+        max-width: 300px;
+      }
+
+      .resume-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+
+      .resume-card i {
+        font-size: 40px;
+        color: #00f2ff;
+      }
+      a {
+          color: #fff;
+          text-decoration: none;
+        }
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column;
+        }
+
+        .sidebar {
+          width: 100%;
+          height: auto;
+          display: flex;
+          justify-content: space-between;
+          padding: 10px;
+        }
+
+        .menu {
+          display: flex;
+          gap: 15px;
+        }
+
+        .main-content {
+          padding: 15px;
+        }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <i class="fas fa-file-alt"></i>
+        <h2>AI Resume</h2>
+      </div>
+      <ul class="menu">
+        <li class="active">
+          <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="/dashboard/my-resumes.html"><i class="fas fa-file"></i> My Resumes</a>
+        </li>
+        <li>
+          <a href="/dashboard/settings.html"><i class="fas fa-cogs"></i> Settings</a>
+        </li>
+        <li>
+          <a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1>Dashboard</h1>
+        <div class="profile">
+          <img src="profile.png" alt="User" />
+          <span class="username">John Doe</span>
+          <i class="fas fa-chevron-down dropdown-icon"></i>
+          <div class="dropdown-menu">
+            <a href="#">My Profile</a>
+            <a href="#">Settings</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- AI Resume Generator Section -->
+      <section class="ai-resume">
+        <h2>Create a Resume</h2>
+        <button class="btn generate-resume">Generate Resume with AI</button>
+      </section>
+
+      <!-- List of Resumes -->
+      <section class="saved-resumes">
+        <h2>Saved Resumes</h2>
+        <div class="resume-list">
+          <div class="resume-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Software Engineer Resume</h3>
+            <p>Last updated: 2 days ago</p>
+            <button class="btn view-resume">View</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      document.querySelector(".profile").addEventListener("click", function () {
+        document.querySelector(".dropdown-menu").classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>

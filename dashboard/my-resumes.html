@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resumes - AI Resume Builder</title>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            background: linear-gradient(120deg, #002244, #0055ff, #00f2ff);
+            color: #fff;
+            height: 100vh;
+        }
+        a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            height: 100%;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .sidebar .menu {
+            margin-top: 30px;
+            list-style: none;
+        }
+
+        .sidebar .menu li {
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sidebar .menu li:hover,
+        .sidebar .menu li.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .profile img {
+            width: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Resume List */
+        .resume-list {
+            margin-top: 30px;
+        }
+
+        .resume-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .resume-card {
+            flex: 1;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 300px;
+        }
+
+        .resume-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .resume-icon {
+            font-size: 50px;
+            color: #00f2ff;
+        }
+
+        .resume-actions {
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            background: linear-gradient(45deg, #00f2ff, #0072ff);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #0072ff, #00f2ff);
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.8);
+            transform: scale(1.05);
+        }
+
+        .delete-btn {
+            background: red;
+        }
+
+        .delete-btn:hover {
+            background: darkred;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-file-alt"></i>
+            <h2>AI Resume</h2>
+        </div>
+        <ul class="menu">
+            <li><a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li class="active"><a href="/dashboard/my-resumes.html"><i class="fas fa-file"></i> My Resumes</a></li>
+            <li><a href="/dashboard/settings.html"><i class="fas fa-cogs"></i> Settings</a></li>
+            <li><a href="/"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <header>
+            <h1>My Resumes</h1>
+            <div class="profile">
+                <img src="profile.png" alt="User">
+                <span class="username">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+            </div>
+        </header>
+
+        <!-- Resume List -->
+        <section class="resume-list">
+            <h2>Saved Resumes</h2>
+            <div class="resume-container">
+
+                <!-- Resume Card -->
+                <div class="resume-card">
+                    <i class="fas fa-file-alt resume-icon"></i>
+                    <h3>Software Engineer Resume</h3>
+                    <p>Last updated: 2 days ago</p>
+                    <div class="resume-actions">
+                        <button class="btn view-btn">View</button>
+                        <button class="btn edit-btn">Edit</button>
+                        <button class="btn delete-btn">Delete</button>
+                        <button class="btn download-btn"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Resume Card -->
+                <div class="resume-card">
+                    <i class="fas fa-file-alt resume-icon"></i>
+                    <h3>Marketing Manager Resume</h3>
+                    <p>Last updated: 5 days ago</p>
+                    <div class="resume-actions">
+                        <button class="btn view-btn">View</button>
+                        <button class="btn edit-btn">Edit</button>
+                        <button class="btn delete-btn">Delete</button>
+                        <button class="btn download-btn"><i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const deleteButtons = document.querySelectorAll(".delete-btn");
+
+            deleteButtons.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    const resumeCard = event.target.closest(".resume-card");
+                    resumeCard.remove();
+                    alert("Resume deleted successfully!");
+                });
+            });
+
+            const downloadButtons = document.querySelectorAll(".download-btn");
+
+            downloadButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    alert("Downloading Resume...");
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

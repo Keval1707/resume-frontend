@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Builder - Build Your Resume in Seconds</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        color: #333;
+      }
+
+      /* Header */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background: #002244;
+        color: white;
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .logo i {
+        margin-right: 5px;
+      }
+
+      .logo span {
+        color: #ffcc00;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background: linear-gradient(45deg, #002244, #0055ff);
+        color: white;
+      }
+
+      .hero-content {
+        max-width: 50%;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero-image img {
+        width: 300px;
+      }
+
+      /* Features Section */
+      .features {
+        text-align: center;
+        padding: 50px 20px;
+        background: #eef;
+      }
+
+      .feature-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .feature {
+        width: 30%;
+        padding: 20px;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .feature i {
+        font-size: 40px;
+        color: #0055ff;
+      }
+
+      /* About Us */
+      .about {
+        text-align: center;
+        padding: 50px 20px;
+      }
+
+      /* Contact Section */
+      .contact {
+        text-align: center;
+        padding: 50px 20px;
+        background: #eef;
+      }
+
+      /* Button */
+      .btn {
+        padding: 10px 20px;
+        background: #002244;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .btn.signup {
+        background: #ffcc00;
+        color: black;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 15px;
+        background: #002244;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="logo">
+        <i class="fas fa-file-alt"></i> AI <span>Resume Builder</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="./features.html">Features</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="auth-buttons">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn signup">Sign Up</a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Build a Professional Resume in Seconds</h1>
+        <p>Let AI generate the perfect resume for your dream job.</p>
+        <br />
+        <a href="signup.html" class="btn start-btn">Get Started</a>
+      </div>
+      <div class="hero-image">
+        <img src="resume-hero.png" alt="Resume Preview" />
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <h2>Why Choose Us?</h2>
+      <div class="feature-container">
+        <div class="feature">
+          <i class="fas fa-magic"></i>
+          <h3>AI-Powered Resume</h3>
+          <p>Generate a high-quality resume instantly with AI.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-file-alt"></i>
+          <h3>Customizable Templates</h3>
+          <p>Choose from multiple professional resume templates.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-check-circle"></i>
+          <h3>ATS-Friendly</h3>
+          <p>Ensure your resume gets noticed by recruiters.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+      <h2>About AI Resume Builder</h2>
+      <p>
+        We are a leading AI-powered platform dedicated to helping job seekers
+        create stunning resumes effortlessly.
+      </p>
+      <p>
+        Our mission is to make job applications seamless with intelligent resume
+        generation, helping users land their dream jobs faster.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <p><i class="fas fa-envelope"></i> Email: support@airesumebuilder.com</p>
+      <p><i class="fas fa-phone"></i> Phone: +123 456 7890</p>
+      <p>
+        <i class="fas fa-map-marker-alt"></i> Location: 123 Resume St, Job City,
+        USA
+      </p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 AI Resume Builder. All rights reserved.</p>
+    </footer>
+
+    <!-- Custom JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll("nav ul li a, .start-btn")
+          .forEach((anchor) => {
+            anchor.addEventListener("click", function (event) {
+              if (this.getAttribute("href").startsWith("#")) {
+                event.preventDefault();
+                const target = document.querySelector(
+                  this.getAttribute("href")
+                );
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            });
+          });
+      });
+    </script>
+  </body>
+</html>
