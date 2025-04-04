@@ -23,7 +23,7 @@ AI Resume Builder is a **modern web application** that helps users generate prof
 │   loginsignup.css     # Login & Signup Styles  
 │   readme.md           # Project Documentation  
 │   resume-hero.png     # Hero Image for Resume Page  
-│   script.js           # JavaScript Functionality  
+│   script.js           # Login & Signup JavaScript Functionality  
 │   signup.html         # Signup Page  
 │  
 └───dashboard  
